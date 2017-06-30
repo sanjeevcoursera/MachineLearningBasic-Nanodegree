@@ -1,0 +1,209 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>The Movie DB Movies!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">The Movie DB Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/cWWCWbsJa2t0FbQwsdQR27MRP3k.jpg" width="220" height="342">
+    <h2>Puccini Gianni Schicchi</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/duahzgtKA6fQKOu4nav89va7R7E.jpg" width="220" height="342">
+    <h2>Super GALS!</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/mAH97Vj79ZNy8jso27NrVyEIlWv.jpg" width="220" height="342">
+    <h2>Sagara Sangamam</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/3Duwh2u93yIt1NXql9jjGNvKeoC.jpg" width="220" height="342">
+    <h2>Drei (3)</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/byIYYC1actrUIEl2opmOTgTrRIv.jpg" width="220" height="342">
+    <h2>Boys in the Sand</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/gjy2lwyS4J2u6RlLdF6L5x1Ikth.jpg" width="220" height="342">
+    <h2>Earth From Space</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/vRWnysXcmp2ddSniPmUu1ZZUmAY.jpg" width="220" height="342">
+    <h2>Cargo</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/6LuDDc1P9oqvjy9oeBrI7QBRi4c.jpg" width="220" height="342">
+    <h2>23rd Psalm Branch: Part I</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/aJ76WxuYfgz0YXTt6ApIi2IJw24.jpg" width="220" height="342">
+    <h2>23rd Psalm Branch: Part II</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/9Hj2bqi955SvTa5zj7uZs6sic29.jpg" width="220" height="342">
+    <h2>The Jinx: The Life and Deaths of Robert Durst Season 1 Chapter 6: What the Hell Did I Do?</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/wAZ7Z94MdA7wV2mLrNDWT4lp5xe.jpg" width="220" height="342">
+    <h2>Tom and Jerry: Spotlight Collection</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/e8In8IS1fzCJ8OlISe4z9zk857B.jpg" width="220" height="342">
+    <h2>Sherlock: The Lying Detective</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/dXvmd9ihxj6AS0iL2imIrtrYG1p.jpg" width="220" height="342">
+    <h2>Injustice 2</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/7Di5qNz4VxUb14cUgsE9SCWEgTh.jpg" width="220" height="342">
+    <h2>Меня зовут Троица (Коллекция)</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/2lvwhw7iXl1kZSBz8mtIyTsXeh6.jpg" width="220" height="342">
+    <h2>The Man Between</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500None" width="220" height="342">
+    <h2>Shéhérazade</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/d8KLZs3GuUO1b9ejghL5YCMbeSu.jpg" width="220" height="342">
+    <h2>The Head of Janus</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="P0DK1dl8eRc" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/p4WBoRlhwaRXo9nA7hqwdWl1ASA.jpg" width="220" height="342">
+    <h2>Dr. Jekyll and Mr. Hyde</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/8WK82rU3yhexdQaxqSrNCjbY2qd.jpg" width="220" height="342">
+    <h2>The Countess</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="KZHKDE4FjpY" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/jxRoai0ScRfYfjHHwSAAmVn2jns.jpg" width="220" height="342">
+    <h2>Godzilla vs. The Sea Monster</h2>
+</div>
+
+    </div>
+  </body>
+</html>
